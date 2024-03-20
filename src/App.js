@@ -1,22 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from "./components/form";
+
+
+function Home() {
+  return (
+    <div>
+      <nav style={{ display: "flex", backgroundColor: "grey", justifyContent: "space-between" }}>
+        <div>
+          <h1 style={{ color: "white" }}>ReelBook</h1>
+        </div> 
+      
+      </nav>
+    </div>
+  );
+}
+
+
+
+
+function Main(){
+  return(
+    <div>
+      <h1>Welcome to Reelbook</h1>
+      <p>You can book a videographer for cinematography, content marketing, music videos</p>
+      
+      <p>Scroll will go here</p>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
+      <Home/>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div style={{ display: "flex", marginLeft:"20px" }}>
+          <Main/>
+          <div  style={{ display: "flex", marginLeft:"20px" }}>
+                <Form/>
+          </div>
+          
+        </div>
       </header>
     </div>
   );
