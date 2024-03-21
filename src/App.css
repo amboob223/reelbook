@@ -12,11 +12,12 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-carousel-caption-bottom {
+.carousel-caption-bottom {
   bottom: 20px; /* Move captions to the bottom with 20px margin */
-  background: rgba(0, 0, 0, 0.5); /* Add background color with some transparency */
+  background: rgba(255, 255, 255, 0.234); /* Light grey background with transparency */
   padding: 20px; /* Add padding to create space between caption and image */
 }
+
 
 .caption-text {
   color: white !important; /* Set text color to white */

@@ -40,6 +40,9 @@ function App() {
           
         </div>
       </header>
+      <footer>
+         <small><p>app designed by <a href="https://econsensus.app">Econsensus</a></p></small>
+      </footer>
     </div>
   );
 }

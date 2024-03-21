@@ -89,7 +89,9 @@ function Form() {
   };
 
   const coin = async() =>{
-    window.location = "https://commerce.coinbase.com/checkout/0c0d43cb-056c-45a9-9783-1dae8d8e2686"
+    window.location = "https://commerce.coinbase.com/checkout/177c2a34-7566-4218-91b3-f55dec5356cc"
+  
+  
   }
   return (
     <div>
@@ -101,12 +103,13 @@ function Form() {
         <input type="date" id="date" value={formData.date} onChange={handleChange} placeholder="Date" style={{ marginBottom: "10px" }} />
         <textarea id="description" value={formData.description} onChange={handleChange} placeholder="Shoot description"></textarea>
       </form>
+        <h1>Schedule</h1>
           <Button as="a" variant='success' onClick={submitHandler}>submit</Button>{' '}
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div>
-          <h1>Or Pay now</h1>
-          <button id="stripe" onClick={checkout}>Stripe</button>
-          <button id="crypto" onClick={coin}>Crypto</button>
+          <h1>Pay now</h1>
+          <Button as="a" variant="warning" id="stripe" onClick={checkout}>Stripe</Button>
+          <Button as="a" variant="success" id="crypto" onClick={coin}>Crypto</Button>
         </div>
       </div>
     </div>
