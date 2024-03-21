@@ -1,7 +1,6 @@
 import './App.css';
 import Form from "./components/form";
-
-
+import CarouselFadeExample from "./components/ExampleCarouselImage"
 function Home() {
   return (
     <div>
@@ -23,8 +22,7 @@ function Main(){
     <div>
       <h1>Welcome to Reelbook</h1>
       <p>You can book a videographer for cinematography, content marketing, music videos</p>
-      
-      <p>Scroll will go here</p>
+      <CarouselFadeExample/>
     </div>
   );
 }

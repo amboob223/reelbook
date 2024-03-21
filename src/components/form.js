@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import "bootstrap/dist/css/bootstrap.min.css" // this line is needed for bootstrap to work 
+import { loadStripe } from '@stripe/stripe-js';
+
+
+
+
 function Form() {
+
+   const stripePromise = loadStripe("pk_test_51OwkXGIcg6QDPFRwc6N9HRWPkKBqKm5LJ0piJcfuIADDnI956XOkTy7UMKoDR5m5HN0kC3UZV68uHwmxjZLPro2300yCo7Pp59");
   const [formData, setFormData] = useState({
+
     name: '',
     email: '',
     phone: '',
@@ -17,6 +25,39 @@ function Form() {
       [id]: value
     }));
   };
+
+  const checkout = async()=>{
+    try {
+      const stripe = await stripePromise;
+      const response = await fetch("http://localhost:5000/create-stripe-checkout",{
+        method:"POST",
+        headers:{"Content-type":"application/json"},
+        body:JSON.stringify({
+          items:[
+            {id:1,quantity:1},
+          ],
+        }),
+      });
+
+      if(response.ok){
+        const session = await response.json();
+        const result = await stripe.redirectToCheckout({
+          sessionId:session.id,
+
+        });
+
+        if (result.error){
+          console.error(result.error.message)
+        }
+      }else{
+        console.error("failed to make checkout")
+      }
+    } catch (error) {
+      console.error("error handling checkout", error);
+    }
+  }
+
+  
 
   const submitHandler = async () => {
     try {
@@ -47,6 +88,9 @@ function Form() {
     }
   };
 
+  const coin = async() =>{
+    window.location = "https://commerce.coinbase.com/checkout/0c0d43cb-056c-45a9-9783-1dae8d8e2686"
+  }
   return (
     <div>
       <h1>Schedule a shoot</h1>
@@ -61,8 +105,8 @@ function Form() {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div>
           <h1>Or Pay now</h1>
-          <button id="stripe">Stripe</button>
-          <button id="crypto">Crypto</button>
+          <button id="stripe" onClick={checkout}>Stripe</button>
+          <button id="crypto" onClick={coin}>Crypto</button>
         </div>
       </div>
     </div>

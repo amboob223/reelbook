@@ -12,6 +12,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+carousel-caption-bottom {
+  bottom: 20px; /* Move captions to the bottom with 20px margin */
+  background: rgba(0, 0, 0, 0.5); /* Add background color with some transparency */
+  padding: 20px; /* Add padding to create space between caption and image */
+}
+
+.caption-text {
+  color: white !important; /* Set text color to white */
+  font-size: 25px; /* Adjust font size */
+}
 
 .App-header {
   background-color: #282c34;
